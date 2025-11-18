@@ -1,0 +1,31 @@
+### Recuperar todas las peliculas
+GET http://localhost:1234/movies
+
+### Recuperar pelicula por id \\ pasar por parametro es esto
+GET http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+### Recuperar pelicula por categoria \\ query string es esto
+GET http://localhost:1234/movies?genre=drama
+
+### Crear pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+  "title": "Enzito Banderas",
+  "year": 1975,
+  "director": "Enzo Cruz",
+  "duration": 175,
+  "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
+  "genre": ["Crime", "Drama"]
+}
+
+### Actualizar una pelicula con PUT (siempre usan este para actualizar TODA LA PELICULA) y yo quieor una parte:
+
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "id": 123,
+  "year": 1998
+}
