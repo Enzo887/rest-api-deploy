@@ -1,10 +1,13 @@
-const express = require('express')
+import express, { json } from 'express'
+import { randomUUID } from 'crypto'
+import cors from 'cors'
+import movies from './movies.json'
+import { validateMovie, validatePartialMovie } from './schemas/movies'
+
+const PORT =  process.env.PORT ?? 1234
 const app = express()
 app.use(express.json())
 app.disable('x-powered-by')
-
-const crypto =  require('crypto')
-const cors= require('cors')
 
 app.use(cors({
     origin: (origin, callback)=>{
