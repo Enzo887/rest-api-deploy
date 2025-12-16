@@ -1,4 +1,4 @@
-const z =  require('zod')
+import z from 'zod'
 
 const movieSchema = z.object({
     title: z.string({
@@ -20,17 +20,13 @@ const movieSchema = z.object({
     )
 })
 
-function validateMovie(object){
+export function validateMovie(object){
     return movieSchema.safeParse(object)
     // midu recomienda este, devuelve un objeto result si hay error o hay datos
 }
 
-function validatePartialMovie(input){
+export function validatePartialMovie(input){
     //partial lo que hace es que PONE A TODOS LOS DATOS COMO OPCIONALES, es decir, si el dato esta lo va a validar, y en caso de que no, como es opicional, lo ignora y sigue con lo demas, no pasa nadap.
     return movieSchema.partial().safeParse(input)
 }
 
-module.exports = {
-    validateMovie,
-    validatePartialMovie
-}
