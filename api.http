@@ -1,3 +1,5 @@
+### Informacion general de la API
+GET http://localhost:1234/
 ### Recuperar todas las peliculas
 GET http://localhost:1234/movies
 
